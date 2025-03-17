@@ -60,6 +60,7 @@ const phoneUrl = import.meta.env.VITE_URL_PHONE_CALL
 }
 
 .contact-link {
+  border: 2px solid var(--neutral-600);
   display: flex;
   align-items: center;
   gap: 0.5rem;

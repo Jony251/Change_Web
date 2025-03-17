@@ -72,7 +72,7 @@
 }
 
 .feature {
-  color: var(--neutral-500);
+  color: var(--neutral-600);
   font-weight: 600;
 }
 
@@ -83,7 +83,7 @@
 
 .slogan-location {
   font-size: 1.8rem;
-  color: var(--neutral-500);
+  color: var(--neutral-600);
   font-style: italic;
   margin-top: 0.5rem;
 }
