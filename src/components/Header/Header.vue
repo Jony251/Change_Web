@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header-content">
       <h1 class="slogan">
-        <div class="slogan-main">Мгновенные мультивалютные обмены</div>
+        <div class="slogan-main">Мгновенный обмен</div>
         <div class="slogan-location">Просто, быстро, надежно в любом городе Израиля</div>
 
         <div class="slogan-features">

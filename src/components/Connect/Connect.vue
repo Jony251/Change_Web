@@ -45,7 +45,7 @@
               v-model="formData.sellAmount"
               min="0"
               step="100"
-              placeholder="Введите сумму"
+              placeholder="Сумма"
               class="form-input"
             />
             <select 
@@ -53,7 +53,7 @@
               class="currency-select"
               required
             >
-              <option value="">Выберите</option>
+              <option value="">Валюта</option>
               <option value="ILS">Шекели</option>
               <option value="RUB">Рубли</option>
               <option value="USD">Доллары</option>
@@ -72,7 +72,7 @@
               v-model="formData.buyAmount"
               min="0"
               step="100"
-              placeholder="Введите сумму"
+              placeholder="Сумма"
               class="form-input"
             />
             <select 
@@ -80,7 +80,7 @@
               class="currency-select"
               required
             >
-              <option value="">Выберите</option>
+              <option value="">Валюта</option>
               <option value="ILS">Шекели</option>
               <option value="RUB">Рубли</option>
               <option value="USD">Доллары</option>
