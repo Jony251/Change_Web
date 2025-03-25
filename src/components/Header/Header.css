@@ -1,39 +1,12 @@
-<template>
-  <header class="header">
-    <div class="header-content">
-      <h1 class="slogan">
-        <div class="slogan-main">Мгновенный обмен рубль ↔ шекель</div>
-        <div class="slogan-features">
-          <span class="feature">Быстро</span>
-          <span class="dot">•</span>
-          <span class="feature">Просто</span>
-          <span class="dot">•</span>
-          <span class="feature">Надежно</span>
-        </div>
-        <div class="slogan-location">По всему Израилю</div>
-      </h1>
-    </div>
-    <div class="abstract-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-    </div>
-  </header>
-</template>
-
-<script setup>
-</script>
-
-<style scoped>
 .header {
   position: relative;
   max-width: 1200px;
-  min-height: 300px;
+  min-height: 350px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
   background: linear-gradient(135deg, var(--primary-100), var(--primary-300));
 }
 
@@ -54,38 +27,53 @@
   line-height: 1.4;
   max-width: 900px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .slogan-main {
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   font-weight: bold;
-  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: var(--primary-700);
+}
+
+.slogan-location {
+  font-size: 1.6rem;
+  color: var(--neutral-600);
+  line-height: 1.3;
 }
 
 .slogan-features {
-  font-size: 2rem;
-  margin: 1rem 0;
+  padding: 1rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .feature {
+  font-size: 1.8rem;
   color: var(--neutral-600);
   font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  background-color: var(--neutral-400);
+  border: 2px solid var(--primary-700);
+  transition: all 0.3s ease;
+}
+
+.feature:hover {
+  background-color: var(--primary-700);
+  color: var(--neutral-100);
 }
 
 .dot {
   color: var(--neutral-500);
-  font-size: 1.2rem;
-}
-
-.slogan-location {
-  font-size: 1.8rem;
-  color: var(--neutral-600);
-  font-style: italic;
-  margin-top: 0.5rem;
+  font-size: 1.4rem;
+  margin: 0 0.2rem;
 }
 
 .abstract-shapes {
@@ -132,42 +120,57 @@
 }
 
 @media (max-width: 768px) {
-  .slogan-main {
-    font-size: 2rem;
+  .header {
+    min-height: 300px;
+    padding: 2.5rem 1.5rem;
   }
   
-  .slogan-features {
-    font-size: 1.5rem;
-    gap: 0.8rem;
+  .slogan {
+    gap: 1.2rem;
+  }
+  
+  .slogan-main {
+    font-size: 2.6rem;
   }
   
   .slogan-location {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
   
-  .header {
-    min-height: 250px;
-    padding: 1.5rem;
+  .feature {
+    font-size: 1.5rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .dot {
+    font-size: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .slogan-main {
-    font-size: 1.6rem;
+  .header {
+    min-height: 280px;
+    padding: 2rem 1rem;
   }
   
-  .slogan-features {
-    font-size: 1.2rem;
-    gap: 0.6rem;
+  .slogan {
+    gap: 1rem;
+  }
+  
+  .slogan-main {
+    font-size: 2rem;
   }
   
   .slogan-location {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
-  .header {
-    min-height: 200px;
-    padding: 1rem;
+  .feature {
+    font-size: 1.3rem;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .dot {
+    font-size: 1rem;
   }
 }
-</style>
