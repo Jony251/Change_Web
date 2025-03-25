@@ -1,4 +1,3 @@
-
 <template>
   <section class="connect">
     <div class="connect-container">
@@ -38,7 +37,7 @@
         </div>
 
         <div class="form-group">
-          <label for="sellAmount">Продать шекели</label>
+          <label for="sellAmount">Продать</label>
           <div class="amount-input">
             <input 
               type="number" 
@@ -49,11 +48,23 @@
               placeholder="Введите сумму"
               class="form-input"
             />
+            <select 
+              v-model="formData.sellCurrency" 
+              class="currency-select"
+              required
+            >
+              <option value="">Выберите</option>
+              <option value="ILS">Шекели</option>
+              <option value="RUB">Рубли</option>
+              <option value="USD">Доллары</option>
+              <option value="EUR">Евро</option>
+              <option value="USDT">USDT</option>
+            </select>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="buyAmount">Купить шекели</label>
+          <label for="buyAmount">Купить</label>
           <div class="amount-input">
             <input 
               type="number" 
@@ -64,6 +75,18 @@
               placeholder="Введите сумму"
               class="form-input"
             />
+            <select 
+              v-model="formData.buyCurrency" 
+              class="currency-select"
+              required
+            >
+              <option value="">Выберите</option>
+              <option value="ILS">Шекели</option>
+              <option value="RUB">Рубли</option>
+              <option value="USD">Доллары</option>
+              <option value="EUR">Евро</option>
+              <option value="USDT">USDT</option>
+            </select>
           </div>
         </div>
 
@@ -82,6 +105,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import emailjs from '@emailjs/browser'
+import './Connect.css'
 
 const isSubmitting = ref(false)
 const submitStatus = ref(null)
@@ -91,7 +115,9 @@ const formData = reactive({
   phone: '',
   city: '',
   sellAmount: '',
-  buyAmount: ''
+  sellCurrency: '',
+  buyAmount: '',
+  buyCurrency: ''
 })
 
 const handleSubmit = async () => {
@@ -107,7 +133,9 @@ const handleSubmit = async () => {
         phone: formData.phone,
         city: formData.city,
         sell_amount: formData.sellAmount,
+        sell_currency: formData.sellCurrency,
         buy_amount: formData.buyAmount,
+        buy_currency: formData.buyCurrency,
       },
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     )
@@ -129,120 +157,3 @@ const handleSubmit = async () => {
   }
 }
 </script>
-
-<style scoped>
-.connect {
-  padding: 4rem 1rem;
-  background-color: var(--primary-100);
-}
-
-.connect-container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.connect-title {
-  text-align: center;
-  color: var(--neutral-700);
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.connect-form {
-  background: var(--neutral-100);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow-md);
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--neutral-600);
-  font-weight: 500;
-}
-
-.form-input {
-  width: 95%;
-  padding: 0.75rem;
-  border: 2px solid var(--primary-200);
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: var(--primary-400);
-}
-
-.amount-input {
-  position: relative;
-}
-
-.currency {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--neutral-500);
-}
-
-.submit-button {
-  width: 100%;
-  padding: 1rem;
-  background-color: var(--primary-400);
-  color: var(--neutral-100);
-  border: none;
-  border-radius: 6px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.submit-button:hover:not(:disabled) {
-  background-color: var(--primary-500);
-  transform: translateY(-2px);
-}
-
-.submit-button:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-}
-
-.status-message {
-  margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 6px;
-  text-align: center;
-}
-
-.status-message.success {
-  background-color: var(--primary-100);
-  color: var(--primary-700);
-}
-
-.status-message.error {
-  background-color: #fee2e2;
-  color: #dc2626;
-}
-
-@media (max-width: 480px) {
-  .connect {
-    padding: 2rem 1rem;
-  }
-
-  .connect-form {
-    padding: 1.5rem;
-  }
-
-  .connect-title {
-    font-size: 1.5rem;
-  }
-}
-</style>
