@@ -25,6 +25,12 @@
   --link: #646cff;
   --link-hover: #535bf2;
 
+  /* Call Button Colors */
+  --call-btn: #FF4D4D;
+  --call-btn-hover: #FF3333;
+  --call-btn-shadow: rgba(255, 77, 77, 0.3);
+  --call-btn-hover-shadow: rgba(255, 77, 77, 0.4);
+
   /* Background Colors */
   --bg-primary: var(--neutral-100);
   --bg-secondary: var(--neutral-200);
@@ -62,7 +68,7 @@
 /* Base styles */
 body {
   margin: 0;
-  display: flex;
+  display: center;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;

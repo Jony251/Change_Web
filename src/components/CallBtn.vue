@@ -1,15 +1,8 @@
 <template>
-  <a :href="phoneUrl" class="call-button" :class="{ 'button-visible': isVisible }">
-    <div class="button-content">
-      <div class="phone-icon">
-        <img src="../assets/icons/phone.svg" alt="Phone" class="icon" />
-      </div>
-      <span class="button-text">Позвонить</span>
-    </div>
-    <div class="ripple-container">
-      <div class="ripple"></div>
-      <div class="ripple"></div>
-    </div>
+  <a :href="phoneUrl" class="call-button">
+    <div class="ripple"></div>
+    <div class="ripple"></div>
+    <span class="button-text">Позвонить</span>
   </a>
 </template>
 
@@ -40,69 +33,36 @@ onUnmounted(() => {
   position: fixed;
   top: 2rem;
   left: 2rem;
-  background-color: #FF4D4D; /* Bright red color */
-  color: white;
-  border-radius: 50px;
-  padding: 0.8rem 1.5rem;
   display: flex;
   align-items: center;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--call-btn);
+  color: var(--neutral-100);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
+  font-weight: 600;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px var(--call-btn-shadow);
   z-index: 1000;
   overflow: hidden;
-  transform: translateY(-100px);
-  opacity: 0;
-}
-
-.button-visible {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.button-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.phone-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon {
-  width: 24px;
-  height: 24px;
-  color: white;
 }
 
 .button-text {
-  font-weight: 600;
+  position: relative;
+  z-index: 2;
   font-size: 1.1rem;
-}
-
-.ripple-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .ripple {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  animation: ripple 2s infinite;
+  background: var(--neutral-100);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: ripple 1s linear infinite;
+  opacity: 0;
 }
 
 .ripple:nth-child(2) {
@@ -123,27 +83,21 @@ onUnmounted(() => {
 }
 
 .call-button:hover {
-  background-color: #FF3333; /* Darker red on hover */
+  background-color: var(--call-btn-hover);
   transform: translateY(2px) scale(1.05);
-  box-shadow: 0 6px 16px rgba(255, 77, 77, 0.4);
+  box-shadow: 0 6px 16px var(--call-btn-hover-shadow);
 }
 
 @media (max-width: 768px) {
   .call-button {
-    top: 1.5rem;
-    left: 1.5rem;
+    top: -1rem;
+    left: 1rem;
     padding: 0.6rem 1.2rem;
+    border-radius: 25px 25px 25px 25px;
   }
 
   .button-text {
     font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .call-button {
-    top: 1rem;
-    left: 1rem;
   }
 }
 </style>

@@ -98,6 +98,7 @@
   }
 
   .info-cards {
+    display: block;
     gap: 1.5rem;
   }
 }
@@ -117,6 +118,7 @@
 
   .info-card {
     padding: 1.5rem;
+    margin: 0 0 1rem 0;
   }
 }
 </style>

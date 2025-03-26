@@ -79,7 +79,6 @@
   transition: all 0.3s ease;
 }
 
-
 .right-section {
   flex: 1;
   position: relative;
@@ -123,7 +122,6 @@
   z-index: 1;
 }
 
-
 .shape-1 {
   position: absolute;
   left: 40%;
@@ -154,45 +152,66 @@
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .left-section {
+    padding: 1rem;
+    min-height: 300px;
+    text-align: center;
   }
 
   .slogan-main {
-    font-size: 3rem;
+    font-size: 2.5rem;
+  }
+
+  .slogan-location {
+    font-size: 1rem;
+    margin: 1rem auto;
   }
 
   .features-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .feature-item {
+    height: 100px;
+  }
+
+  .shape-1, .shape-2 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .shape-1 {
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%) rotate(45deg);
+  }
+
+  .shape-2 {
+    right: -20%;
+    bottom: -10%;
   }
 }
 
 @media (max-width: 480px) {
-  .header {
-    min-height: 280px;
-    padding: 2rem 1rem;
-  }
-  
-  .header-content {
-    flex-direction: column;
-  }
-
-  .slogan {
-    gap: 1rem;
-  }
-  
   .slogan-main {
     font-size: 2rem;
   }
-  
-  .slogan-location {
-    font-size: 1.2rem;
+
+  .features-grid {
+    gap: 1rem;
   }
-  
+
   .feature {
-    font-size: 1.3rem;
-    padding: 0.2rem 0.5rem;
-  }
-  
-  .dot {
     font-size: 1rem;
+  }
+
+  .shape-1, .shape-2 {
+    width: 150px;
+    height: 150px;
   }
 }
