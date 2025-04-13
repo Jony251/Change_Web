@@ -16,13 +16,25 @@
 
         <div class="form-group">
           <label for="phone">Номер телефона</label>
-          <input 
-            type="tel" 
-            id="phone" 
-            v-model="formData.phone"
-            required
-            class="form-input"
-          />
+          <div class="amount-input">
+            <input 
+              type="tel" 
+              id="phone" 
+              v-model="formData.phone"
+              required
+              class="form-input"
+            />
+            <select 
+              v-model="formData.phone_option" 
+              class="currency-select"
+              required
+            >
+              <option value="">Связаться</option>
+              <option value="TELEGRAM">Телеграм</option>
+              <option value="WHATSAPP">Whatsapp</option>
+              <option value="PHONE">Телефон</option>
+            </select>
+          </div>
         </div>
 
         <div class="form-group">
@@ -113,6 +125,7 @@ const submitStatus = ref(null)
 const formData = reactive({
   name: '',
   phone: '',
+  phone_option: '',
   city: '',
   sellAmount: '',
   sellCurrency: '',
@@ -131,6 +144,7 @@ const handleSubmit = async () => {
       {
         from_name: formData.name,
         phone: formData.phone,
+        phone_option: formData.phone_option,
         city: formData.city,
         sell_amount: formData.sellAmount,
         sell_currency: formData.sellCurrency,

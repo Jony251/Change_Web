@@ -1,19 +1,15 @@
 <script setup>
 import './assets/base.css'
 import Header from './components/Header/Header.vue'
-import MainInfo from './components/MainInfo.vue'
 import Connect from './components/Connect/Connect.vue'
 import Footer from './components/Footer/Footer.vue'
-import CallBtn from './components/CallBtn.vue'
 </script>
 
 <template>
   <div class="app">
     <Header />
-    <MainInfo />
     <Connect />
     <Footer />
-    <CallBtn />
   </div>
 </template>
 
