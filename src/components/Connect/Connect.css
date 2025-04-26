@@ -41,13 +41,17 @@
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
-
+.abc-input{
+  width: 50vh;
+}
 .form-input:focus {
   outline: none;
   border-color: var(--primary-400);
 }
 
 .amount-input {
+  display: flex;
+  justify-content: space-between;
   position: relative;
   display: flex;
   gap: 1rem;
@@ -133,5 +137,20 @@
 
   .connect-title {
     font-size: 1.5rem;
+  }
+}
+
+/* Mobile responsiveness for amount-input */
+@media (max-width: 480px) {
+  .amount-input {
+    flex-direction: column;
+  }
+
+  .abc-input {
+    width: 95%;
+  }
+
+  .currency-select {
+    width: 100%;
   }
 }

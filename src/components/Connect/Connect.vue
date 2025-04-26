@@ -15,27 +15,34 @@
         </div>
 
         <div class="form-group">
-          <label for="phone">Телефон</label>
+
+          
           <div class="amount-input">
+            <div>
+            <label for="phone">Телефон</label>
             <input 
               type="tel" 
               id="phone" 
               v-model="formData.phone"
               required
-              class="form-input"
+              class="form-input abc-input"
             />
+           </div>
+            <div> 
+            <label for="phone_option">Связь через</label>
             <select 
+              id="phone_option"
               v-model="formData.phone_option" 
               class="currency-select"
               required
             >
-            <!--TODO: add label for select-->
-            <label for="phone">Связь через</label>
               <option value="TELEGRAM">Телеграм</option>
               <option value="WHATSAPP">Whatsapp</option>
               <option value="PHONE">Телефон</option>
             </select>
+            </div>
           </div>
+          
         </div>
 
         <div class="form-group">
