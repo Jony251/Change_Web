@@ -15,7 +15,7 @@
         </div>
 
         <div class="form-group">
-          <label for="phone">Номер телефона</label>
+          <label for="phone">Телефон</label>
           <div class="amount-input">
             <input 
               type="tel" 
@@ -29,7 +29,8 @@
               class="currency-select"
               required
             >
-              <option value="">Связаться</option>
+            <!--TODO: add label for select-->
+            <label for="phone">Связь через</label>
               <option value="TELEGRAM">Телеграм</option>
               <option value="WHATSAPP">Whatsapp</option>
               <option value="PHONE">Телефон</option>

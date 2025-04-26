@@ -2,7 +2,6 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-left">
-        <h2 class="owner-name">Михаил</h2>
         <div class="contact-links">
           <a :href="telegramUrl" target="_blank" class="contact-link">
             <img src="../../assets/icons/telegram_icon.png" alt="Telegram" class="contact-icon" />
