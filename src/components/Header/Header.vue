@@ -14,23 +14,23 @@
         <div class="features-grid">
           <div class="feature-item">
             <span class="feature">Шекели</span>
-            <Circle class="feature-bg" color="#b3d5d0" :size="150" :opacity="0.5" />
+            <Circle class="feature-bg" color="#b3d5d0" :size="120" :opacity="0.5" />
           </div>
           <div class="feature-item">
             <span class="feature">Рубли</span>
-            <Circle class="feature-bg" color="#80bab2" :size="150" :opacity="0.5" />
+            <Circle class="feature-bg" color="#b3d5d0" :size="120" :opacity="0.5" />
           </div>
           <div class="feature-item">
             <span class="feature">Доллары</span>
-            <Circle class="feature-bg" color="#b3d5d0" :size="150" :opacity="0.5" />
+            <Circle class="feature-bg" color="#b3d5d0" :size="120" :opacity="0.5" />
           </div>
           <div class="feature-item">
             <span class="feature">Евро</span>
-            <Circle class="feature-bg" color="#80bab2" :size="150" :opacity="0.5" />
+            <Circle class="feature-bg" color="#b3d5d0" :size="120" :opacity="0.5" />
           </div>
           <div class="feature-item">
             <span class="feature">USDT</span>
-            <Circle class="feature-bg" color="#b3d5d0" :size="150" :opacity="0.5" />
+            <Circle class="feature-bg" color="#b3d5d0" :size="120" :opacity="0.5" />
           </div>
         </div>
       </div>

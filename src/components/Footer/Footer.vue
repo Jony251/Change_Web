@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p> 2025 &copy; all rights reserved | <a href="https://www.linkedin.com/in/evgeny-nemchenko/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+      <p> 2025 &copy; all rights reserved | made by <a href="https://www.linkedin.com/in/evgeny-nemchenko/" target="_blank" rel="noopener noreferrer">Evgeny</a></p>
     </div>
   </footer>
 </template>

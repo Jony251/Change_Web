@@ -4,6 +4,8 @@
 }
 
 .connect-container {
+  display: flex;
+  flex-direction: column;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -140,17 +142,61 @@
   }
 }
 
-/* Mobile responsiveness for amount-input */
+/* Container styles for inputs and selects */
+.phone-container,
+.amount-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Increased gap for more space between input and select */
+  align-items: flex-start;
+}
+
+.phone-input-group,
+.amount-input-group {
+  flex: 2;
+}
+
+.phone-option-group,
+.amount-currency-group {
+  flex: 1;
+}
+
+/* Mobile responsiveness */
 @media (max-width: 480px) {
   .amount-input {
     flex-direction: column;
   }
 
-  .abc-input {
-    width: 95%;
-  }
-
   .currency-select {
     width: 100%;
+  }
+  
+  /* Ensure all containers maintain horizontal layout on mobile */
+  .phone-container,
+  .amount-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2vh;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  
+  /* Fix width issues on mobile */
+  .amount-input-group,
+  .phone-input-group {
+    flex: 1.5;
+    max-width: 60%;
+  }
+  
+  .amount-currency-group,
+  .phone-option-group {
+    flex: 1;
+    min-width: 35%;
+  }
+  
+  /* Ensure inputs don't overflow their containers */
+  .form-input {
+    width: 100%;
+    box-sizing: border-box;
   }
 }

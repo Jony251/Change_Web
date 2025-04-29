@@ -15,34 +15,31 @@
         </div>
 
         <div class="form-group">
-
-          
-          <div class="amount-input">
-            <div>
-            <label for="phone">Телефон</label>
-            <input 
-              type="tel" 
-              id="phone" 
-              v-model="formData.phone"
-              required
-              class="form-input abc-input"
-            />
-           </div>
-            <div> 
-            <label for="phone_option">Связь через</label>
-            <select 
-              id="phone_option"
-              v-model="formData.phone_option" 
-              class="currency-select"
-              required
-            >
-              <option value="TELEGRAM">Телеграм</option>
-              <option value="WHATSAPP">Whatsapp</option>
-              <option value="PHONE">Телефон</option>
-            </select>
+          <div class="phone-container">
+            <div class="phone-input-group">
+              <label for="phone">Телефон</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                v-model="formData.phone"
+                required
+                class="form-input"
+              />
+            </div>
+            <div class="phone-option-group"> 
+              <label for="phone_option">Связь через</label>
+              <select 
+                id="phone_option"
+                v-model="formData.phone_option" 
+                class="currency-select"
+                required
+              >
+                <option value="TELEGRAM">Телеграм</option>
+                <option value="WHATSAPP">Whatsapp</option>
+                <option value="PHONE">Телефон</option>
+              </select>
             </div>
           </div>
-          
         </div>
 
         <div class="form-group">
@@ -57,56 +54,64 @@
         </div>
 
         <div class="form-group">
-          <label for="sellAmount">Продать</label>
-          <div class="amount-input">
-            <input 
-              type="number" 
-              id="sellAmount" 
-              v-model="formData.sellAmount"
-              min="0"
-              step="100"
-              placeholder="Сумма"
-              class="form-input"
-            />
-            <select 
-              v-model="formData.sellCurrency" 
-              class="currency-select"
-              required
-            >
-              <option value="">Валюта</option>
-              <option value="ILS">Шекели</option>
-              <option value="RUB">Рубли</option>
-              <option value="USD">Доллары</option>
-              <option value="EUR">Евро</option>
-              <option value="USDT">USDT</option>
-            </select>
+          <div class="amount-container">
+            <div class="amount-input-group">
+              <label for="sellAmount">Продать</label>
+              <input 
+                type="number" 
+                id="sellAmount" 
+                v-model="formData.sellAmount"
+                min="0"
+                placeholder="Сумма"
+                class="form-input"
+              />
+            </div>
+            <div class="amount-currency-group">
+              <label>Валюта</label>
+              <select 
+                v-model="formData.sellCurrency" 
+                class="currency-select"
+                required
+              >
+                <option value="">Валюта</option>
+                <option value="ILS">Шекели</option>
+                <option value="RUB">Рубли</option>
+                <option value="USD">Доллары</option>
+                <option value="EUR">Евро</option>
+                <option value="USDT">USDT</option>
+              </select>
+            </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="buyAmount">Купить</label>
-          <div class="amount-input">
-            <input 
-              type="number" 
-              id="buyAmount" 
-              v-model="formData.buyAmount"
-              min="0"
-              step="100"
-              placeholder="Сумма"
-              class="form-input"
-            />
-            <select 
-              v-model="formData.buyCurrency" 
-              class="currency-select"
-              required
-            >
-              <option value="">Валюта</option>
-              <option value="ILS">Шекели</option>
-              <option value="RUB">Рубли</option>
-              <option value="USD">Доллары</option>
-              <option value="EUR">Евро</option>
-              <option value="USDT">USDT</option>
-            </select>
+          <div class="amount-container">
+            <div class="amount-input-group">
+              <label for="buyAmount">Купить</label>
+              <input 
+                type="number" 
+                id="buyAmount" 
+                v-model="formData.buyAmount"
+                min="0"
+                placeholder="Сумма"
+                class="form-input"
+              />
+            </div>
+            <div class="amount-currency-group">
+              <label>Валюта</label>
+              <select 
+                v-model="formData.buyCurrency" 
+                class="currency-select"
+                required
+              >
+                <option value="">Валюта</option>
+                <option value="ILS">Шекели</option>
+                <option value="RUB">Рубли</option>
+                <option value="USD">Доллары</option>
+                <option value="EUR">Евро</option>
+                <option value="USDT">USDT</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -146,21 +151,38 @@ const handleSubmit = async () => {
   submitStatus.value = null
 
   try {
-    await emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      {
-        from_name: formData.name,
+    // await emailjs.send(
+    //   import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    //   import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+    //   {
+    //     from_name: formData.name,
+    //     phone: formData.phone,
+    //     phone_option: formData.phone_option,
+    //     city: formData.city,
+    //     sell_amount: formData.sellAmount,
+    //     sell_currency: formData.sellCurrency,
+    //     buy_amount: formData.buyAmount,
+    //     buy_currency: formData.buyCurrency,
+    //   },
+    //   import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    // )
+
+    await fetch('https://fy6j7rep06.execute-api.eu-north-1.amazonaws.com/lead', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: formData.name,
         phone: formData.phone,
         phone_option: formData.phone_option,
         city: formData.city,
-        sell_amount: formData.sellAmount,
-        sell_currency: formData.sellCurrency,
-        buy_amount: formData.buyAmount,
-        buy_currency: formData.buyCurrency,
-      },
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    )
+        sellAmount: formData.sellAmount,
+        sellCurrency: formData.sellCurrency,
+        buyAmount: formData.buyAmount,
+        buyCurrency: formData.buyCurrency,
+      }),
+    });
 
     submitStatus.value = {
       type: 'success',
