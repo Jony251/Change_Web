@@ -1,25 +1,65 @@
-a {
-  color: var(--primary-500);
+/* Global transition for language switching - text only, no layout shift */
+.fade-text-enter-active,
+.fade-text-leave-active {
+  transition: opacity 0.2s ease;
 }
-a:hover {
-  color: var(--primary-600);
-}
-
-button {
-  background-color: var(--primary-500);
-  color: var(--neutral-100);
-  transition: border-color 0.25s, background-color 0.25s;
-}
-button:hover {
-  background-color: var(--primary-600);
-  border-color: var(--primary-700);
+.fade-text-enter-from,
+.fade-text-leave-to {
+  opacity: 0;
 }
 
-@media (prefers-color-scheme: light) {
-  a:hover {
-    color: var(--primary-700);
-  }
-  button {
-    background-color: var(--primary-500);
-  }
+/* Section spacing */
+.section {
+  padding: 5rem 1.5rem;
 }
+
+.section-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* RTL — ALL layout containers stay LTR, only text content changes direction */
+[dir="rtl"] .hero-content,
+[dir="rtl"] .hero-nav-inner,
+[dir="rtl"] .hero-visual,
+[dir="rtl"] .currency-grid,
+[dir="rtl"] .how-section,
+[dir="rtl"] .how-cards,
+[dir="rtl"] .connect-section,
+[dir="rtl"] .connect-form,
+[dir="rtl"] .form-row,
+[dir="rtl"] .footer-content,
+[dir="rtl"] .footer-left,
+[dir="rtl"] .contact-links,
+[dir="rtl"] .orbit-container,
+[dir="rtl"] .orbit-ring {
+  direction: ltr;
+}
+
+/* Text elements get RTL direction for proper Hebrew rendering */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] label,
+[dir="rtl"] a,
+[dir="rtl"] button,
+[dir="rtl"] input,
+[dir="rtl"] select,
+[dir="rtl"] textarea,
+[dir="rtl"] .hero-badge,
+[dir="rtl"] .hero-title,
+[dir="rtl"] .hero-description,
+[dir="rtl"] .hero-cta,
+[dir="rtl"] .how-card,
+[dir="rtl"] .footer-bottom {
+  direction: rtl;
+  text-align: center;
+}
+
+[dir="rtl"] .hero-description,
+[dir="rtl"] .hero-title {
+  text-align: start;
+}
+

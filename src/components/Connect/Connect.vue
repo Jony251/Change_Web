@@ -1,10 +1,12 @@
 <template>
-  <section class="connect">
+  <section id="connect" class="connect">
     <div class="connect-container">
-      <h2 class="connect-title">Свяжитесь с нами</h2>
+      <div class="connect-header text-center">
+        <h2 class="connect-title">{{ t.connectTitle }}</h2>
+      </div>
       <form @submit.prevent="handleSubmit" class="connect-form">
         <div class="form-group">
-          <label for="name">Ваше имя</label>
+          <label for="name">{{ t.labelName }}</label>
           <input 
             type="text" 
             id="name" 
@@ -15,9 +17,9 @@
         </div>
 
         <div class="form-group">
-          <div class="phone-container">
-            <div class="phone-input-group">
-              <label for="phone">Телефон</label>
+          <div class="form-row">
+            <div class="form-row-main">
+              <label for="phone">{{ t.labelPhone }}</label>
               <input 
                 type="tel" 
                 id="phone" 
@@ -26,24 +28,24 @@
                 class="form-input"
               />
             </div>
-            <div class="phone-option-group"> 
-              <label for="phone_option">Связь через</label>
+            <div class="form-row-side"> 
+              <label for="phone_option">{{ t.labelPhoneOption }}</label>
               <select 
                 id="phone_option"
                 v-model="formData.phone_option" 
-                class="currency-select"
+                class="form-select"
                 required
               >
-                <option value="TELEGRAM">Телеграм</option>
-                <option value="WHATSAPP">Whatsapp</option>
-                <option value="PHONE">Телефон</option>
+                <option value="TELEGRAM">{{ t.optionTelegram }}</option>
+                <option value="WHATSAPP">{{ t.optionWhatsapp }}</option>
+                <option value="PHONE">{{ t.optionPhone }}</option>
               </select>
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="city">Город</label>
+          <label for="city">{{ t.labelCity }}</label>
           <input 
             type="text" 
             id="city" 
@@ -54,69 +56,69 @@
         </div>
 
         <div class="form-group">
-          <div class="amount-container">
-            <div class="amount-input-group">
-              <label for="sellAmount">Продать</label>
+          <div class="form-row">
+            <div class="form-row-main">
+              <label for="sellAmount">{{ t.labelSell }}</label>
               <input 
                 type="number" 
                 id="sellAmount" 
                 v-model="formData.sellAmount"
                 min="0"
-                placeholder="Сумма"
+                :placeholder="t.placeholderAmount"
                 class="form-input"
               />
             </div>
-            <div class="amount-currency-group">
-              <label>Валюта</label>
+            <div class="form-row-side">
+              <label>{{ t.labelCurrency }}</label>
               <select 
                 v-model="formData.sellCurrency" 
-                class="currency-select"
+                class="form-select"
                 required
               >
-                <option value="">Валюта</option>
-                <option value="ILS">Шекели</option>
-                <option value="RUB">Рубли</option>
-                <option value="USD">Доллары</option>
-                <option value="EUR">Евро</option>
-                <option value="USDT">USDT</option>
+                <option value="">{{ t.labelCurrency }}</option>
+                <option value="ILS">{{ t.currShekel }}</option>
+                <option value="RUB">{{ t.currRuble }}</option>
+                <option value="USD">{{ t.currDollar }}</option>
+                <option value="EUR">{{ t.currEuro }}</option>
+                <option value="USDT">{{ t.currUsdt }}</option>
               </select>
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <div class="amount-container">
-            <div class="amount-input-group">
-              <label for="buyAmount">Купить</label>
+          <div class="form-row">
+            <div class="form-row-main">
+              <label for="buyAmount">{{ t.labelBuy }}</label>
               <input 
                 type="number" 
                 id="buyAmount" 
                 v-model="formData.buyAmount"
                 min="0"
-                placeholder="Сумма"
+                :placeholder="t.placeholderAmount"
                 class="form-input"
               />
             </div>
-            <div class="amount-currency-group">
-              <label>Валюта</label>
+            <div class="form-row-side">
+              <label>{{ t.labelCurrency }}</label>
               <select 
                 v-model="formData.buyCurrency" 
-                class="currency-select"
+                class="form-select"
                 required
               >
-                <option value="">Валюта</option>
-                <option value="ILS">Шекели</option>
-                <option value="RUB">Рубли</option>
-                <option value="USD">Доллары</option>
-                <option value="EUR">Евро</option>
-                <option value="USDT">USDT</option>
+                <option value="">{{ t.labelCurrency }}</option>
+                <option value="ILS">{{ t.currShekel }}</option>
+                <option value="RUB">{{ t.currRuble }}</option>
+                <option value="USD">{{ t.currDollar }}</option>
+                <option value="EUR">{{ t.currEuro }}</option>
+                <option value="USDT">{{ t.currUsdt }}</option>
               </select>
             </div>
           </div>
         </div>
 
         <button type="submit" class="submit-button" :disabled="isSubmitting">
-          {{ isSubmitting ? 'Отправка...' : 'Отправить заявку' }}
+          {{ isSubmitting ? t.submitting : t.submitBtn }}
         </button>
 
         <div v-if="submitStatus" :class="['status-message', submitStatus.type]">
@@ -130,8 +132,10 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import emailjs from '@emailjs/browser'
+import { useI18n } from '../../i18n/useI18n.js'
 import './Connect.css'
 
+const { t } = useI18n()
 const isSubmitting = ref(false)
 const submitStatus = ref(null)
 
@@ -186,7 +190,7 @@ const handleSubmit = async () => {
 
     submitStatus.value = {
       type: 'success',
-      message: 'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.'
+      message: t.value.successMsg
     }
 
     // Reset form
@@ -194,7 +198,7 @@ const handleSubmit = async () => {
   } catch (error) {
     submitStatus.value = {
       type: 'error',
-      message: 'Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз.'
+      message: t.value.errorMsg
     }
   } finally {
     isSubmitting.value = false

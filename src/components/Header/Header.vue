@@ -1,36 +1,42 @@
 <template>
-  <header class="header">
-    <div class="header-content">
-      <div class="left-section">
-        <div class="slogan-container">
-          <h1 class="slogan-main">Мультивалютный обмен</h1>
-          <p class="slogan-location">Просто быстро надежно при встрече в любом городе Израиля</p>
+  <header class="hero">
+    <!-- Top nav bar with language switcher -->
+    <nav class="hero-nav">
+      <div class="hero-nav-inner">
+        <span class="hero-nav-brand">Change</span>
+        <LangSwitcher />
+      </div>
+    </nav>
+
+    <!-- Decorative background -->
+    <div class="hero-bg">
+      <div class="hero-gradient"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>{{ t.heroSubtitle }}</span>
         </div>
-        <Circle class="shape-1" color="#279280" :size="450" :opacity="0.25" />
-        <Circle class="shape-2" color="#80bab2" :size="350" :opacity="0.2" />
+        <h1 class="hero-title">{{ t.heroTitle }}</h1>
+        <p class="hero-description">{{ t.heroDescription }}</p>
+        <a href="#connect" class="hero-cta">
+          {{ t.heroCta }}
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
 
-      <div class="right-section">
-        <div class="features-grid">
-          <div class="feature-item">
-            <span class="feature">Шекели</span>
-            <Circle class="feature-bg" color="#b3d5d0" :size="120" :opacity="0.5" />
-          </div>
-          <div class="feature-item">
-            <span class="feature">Рубли</span>
-            <Circle class="feature-bg" color="#b3d5d0" :size="120" :opacity="0.5" />
-          </div>
-          <div class="feature-item">
-            <span class="feature">Доллары</span>
-            <Circle class="feature-bg" color="#b3d5d0" :size="120" :opacity="0.5" />
-          </div>
-          <div class="feature-item">
-            <span class="feature">Евро</span>
-            <Circle class="feature-bg" color="#b3d5d0" :size="120" :opacity="0.5" />
-          </div>
-          <div class="feature-item">
-            <span class="feature">USDT</span>
-            <Circle class="feature-bg" color="#b3d5d0" :size="120" :opacity="0.5" />
+      <div class="hero-visual">
+        <div class="currency-grid">
+          <div class="currency-card" v-for="(curr, i) in currencies" :key="i">
+            <span class="currency-symbol">{{ curr.symbol }}</span>
+            <span class="currency-name">{{ curr.name }}</span>
           </div>
         </div>
       </div>
@@ -39,7 +45,19 @@
 </template>
 
 <script setup>
-import Circle from './Circle/Circle.vue'
+import { computed } from 'vue'
+import { useI18n } from '../../i18n/useI18n.js'
+import LangSwitcher from '../LangSwitcher.vue'
+
+const { t } = useI18n()
+
+const currencies = computed(() => [
+  { symbol: '₪', name: t.value.currShekel },
+  { symbol: '₽', name: t.value.currRuble },
+  { symbol: '$', name: t.value.currDollar },
+  { symbol: '€', name: t.value.currEuro },
+  { symbol: '₮', name: t.value.currUsdt },
+])
 </script>
 
 <style scoped>

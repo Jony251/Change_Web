@@ -1,202 +1,182 @@
 .connect {
-  padding: 4rem 1rem;
-  background-color: var(--primary-100);
+  padding: 6rem 1.5rem;
+  background: var(--neutral-100);
 }
 
 .connect-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
+  max-width: 580px;
   margin: 0 auto;
+}
+
+.connect-header {
+  margin-bottom: 2.5rem;
 }
 
 .connect-title {
   text-align: center;
-  color: var(--neutral-700);
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  color: var(--text-primary);
+  font-size: 2.25rem;
+  font-weight: 700;
 }
 
 .connect-form {
   background: var(--neutral-100);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow-md);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.5rem;
-  color: var(--neutral-600);
+  margin-bottom: 0.4rem;
+  color: var(--text-secondary);
   font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .form-input {
-  width: 95%;
-  padding: 0.75rem;
-  border: 2px solid var(--primary-200);
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border-light);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--neutral-200);
+  transition: all 0.2s ease;
 }
-.abc-input{
-  width: 50vh;
-}
+
 .form-input:focus {
   outline: none;
   border-color: var(--primary-400);
+  background: var(--neutral-100);
+  box-shadow: 0 0 0 3px rgba(39, 146, 128, 0.1);
 }
 
-.amount-input {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border-light);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--neutral-200);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23737373' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
 }
 
-.amount-input .form-input {
-  flex: 1;
-}
-
-.currency-select {
-  width: 120px;
-  padding: 0.75rem;
-  border: 2px solid var(--primary-200);
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-  background-color: var(--neutral-100);
-  color: var(--neutral-700);
-}
-
-.currency-select:focus {
+.form-select:focus {
   outline: none;
   border-color: var(--primary-400);
+  background-color: var(--neutral-100);
+  box-shadow: 0 0 0 3px rgba(39, 146, 128, 0.1);
 }
 
-.currency {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--neutral-500);
+/* Row layout for paired fields */
+.form-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.form-row-main {
+  flex: 2;
+}
+
+.form-row-side {
+  flex: 1;
+  min-width: 120px;
 }
 
 .submit-button {
   width: 100%;
-  padding: 1rem;
-  background-color: var(--primary-400);
+  padding: 0.9rem;
+  margin-top: 0.5rem;
+  background: var(--primary-500);
   color: var(--neutral-100);
   border: none;
-  border-radius: 6px;
-  font-size: 1.1rem;
+  border-radius: 12px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(39, 146, 128, 0.25);
 }
 
 .submit-button:hover:not(:disabled) {
-  background-color: var(--primary-500);
+  background: var(--primary-600);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(39, 146, 128, 0.35);
 }
 
 .submit-button:disabled {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
 .status-message {
   margin-top: 1rem;
-  padding: 1rem;
-  border-radius: 6px;
+  padding: 0.9rem 1.25rem;
+  border-radius: 10px;
   text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .status-message.success {
-  background-color: var(--primary-100);
+  background: var(--primary-100);
   color: var(--primary-700);
+  border: 1px solid var(--primary-200);
 }
 
 .status-message.error {
-  background-color: #fee2e2;
+  background: #fef2f2;
   color: #dc2626;
+  border: 1px solid #fecaca;
 }
 
-@media (max-width: 480px) {
+/* Responsive */
+@media (max-width: 600px) {
   .connect {
-    padding: 2rem 1rem;
+    padding: 4rem 1rem;
   }
 
   .connect-form {
     padding: 1.5rem;
+    border-radius: 16px;
   }
 
   .connect-title {
-    font-size: 1.5rem;
-  }
-}
-
-/* Container styles for inputs and selects */
-.phone-container,
-.amount-container {
-  display: flex;
-  flex-direction: row;
-  gap: 20px; /* Increased gap for more space between input and select */
-  align-items: flex-start;
-}
-
-.phone-input-group,
-.amount-input-group {
-  flex: 2;
-}
-
-.phone-option-group,
-.amount-currency-group {
-  flex: 1;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 480px) {
-  .amount-input {
-    flex-direction: column;
+    font-size: 1.75rem;
   }
 
-  .currency-select {
-    width: 100%;
-  }
-  
-  /* Ensure all containers maintain horizontal layout on mobile */
-  .phone-container,
-  .amount-container {
-    display: flex;
+  .form-row {
     flex-direction: row;
-    gap: 2vh;
-    align-items: flex-start;
-    justify-content: space-between;
+    gap: 0.75rem;
   }
-  
-  /* Fix width issues on mobile */
-  .amount-input-group,
-  .phone-input-group {
+
+  .form-row-main {
     flex: 1.5;
-    max-width: 60%;
   }
-  
-  .amount-currency-group,
-  .phone-option-group {
+
+  .form-row-side {
     flex: 1;
-    min-width: 35%;
+    min-width: 100px;
   }
-  
-  /* Ensure inputs don't overflow their containers */
-  .form-input {
-    width: 100%;
-    box-sizing: border-box;
+}
+
+@media (max-width: 400px) {
+  .connect-form {
+    padding: 1.25rem;
   }
 }

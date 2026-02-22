@@ -1,25 +1,16 @@
 <template>
-  <section class="main-info">
-    <div class="info-container">
-      <h2 class="info-title">Как это работает</h2>
-      
-      <div class="info-cards">
-        <div class="info-card">
-          <div class="card-icon">🕒</div>
-          <h3 class="card-title">Удобное время</h3>
-          <p class="card-text">Приеду к Вам в оговоренное время</p>
-        </div>
+  <section class="how-section">
+    <div class="how-container">
+      <div class="how-header text-center">
+        <h2 class="how-title">{{ t.howTitle }}</h2>
+      </div>
 
-        <div class="info-card">
-          <div class="card-icon">💰</div>
-          <h3 class="card-title">Купить шекели</h3>
-          <p class="card-text">Перечислю рубли в любой банк РФ, приму шекели</p>
-        </div>
-
-        <div class="info-card">
-          <div class="card-icon">🔄</div>
-          <h3 class="card-title">Продать шекели</h3>
-          <p class="card-text">Передам шекели, приму рубли в банке РФ</p>
+      <div class="how-cards">
+        <div class="how-card" v-for="(step, i) in steps" :key="i">
+          <div class="how-card-number">{{ i + 1 }}</div>
+          <div class="how-card-icon">{{ step.icon }}</div>
+          <h3 class="how-card-title">{{ step.title }}</h3>
+          <p class="how-card-text">{{ step.text }}</p>
         </div>
       </div>
     </div>
@@ -27,98 +18,123 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from '../i18n/useI18n.js'
+
+const { t } = useI18n()
+
+const steps = computed(() => [
+  { icon: '🕒', title: t.value.howStep1Title, text: t.value.howStep1Text },
+  { icon: '💰', title: t.value.howStep2Title, text: t.value.howStep2Text },
+  { icon: '🔄', title: t.value.howStep3Title, text: t.value.howStep3Text },
+])
 </script>
 
 <style scoped>
-.main-info {
-  padding: 5rem 1rem;
-  background: linear-gradient(135deg, var(--primary-200), var(--primary-100));
+.how-section {
+  padding: 6rem 1.5rem;
+  background: var(--neutral-200);
 }
 
-.info-container {
-  max-width: 1200px;
+.how-container {
+  max-width: 1140px;
   margin: 0 auto;
 }
 
-.info-title {
+.how-header {
+  margin-bottom: 3.5rem;
+}
+
+.how-title {
+  color: var(--text-primary);
+  font-size: 2.25rem;
+  font-weight: 700;
   text-align: center;
-  color: var(--neutral-700);
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  font-weight: bold;
 }
 
-.info-cards {
+.how-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 
-.info-card {
+.how-card {
+  position: relative;
   background: var(--neutral-100);
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: 20px;
+  padding: 2.5rem 2rem 2rem;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
 }
 
-.info-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+.how-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-300);
 }
 
-.card-icon {
-  font-size: 3rem;
+.how-card-number {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 32px;
+  background: var(--primary-500);
+  color: var(--neutral-100);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.how-card-icon {
+  font-size: 2.5rem;
   margin-bottom: 1rem;
+  line-height: 1;
 }
 
-.card-title {
-  color: var(--primary-500);
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+.how-card-title {
+  color: var(--primary-700);
+  font-size: 1.2rem;
   font-weight: 600;
+  margin-bottom: 0.75rem;
 }
 
-.card-text {
-  color: var(--neutral-600);
-  font-size: 1.1rem;
+.how-card-text {
+  color: var(--text-tertiary);
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-  .main-info {
-    padding: 3rem 1rem;
+  .how-section {
+    padding: 4rem 1rem;
   }
 
-  .info-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+  .how-cards {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
-  .info-cards {
-    display: block;
-    gap: 1.5rem;
+  .how-title {
+    font-size: 1.75rem;
   }
 }
 
 @media (max-width: 480px) {
-  .info-title {
-    font-size: 1.75rem;
+  .how-section {
+    padding: 3rem 1rem;
   }
 
-  .card-title {
-    font-size: 1.25rem;
-  }
-
-  .card-text {
-    font-size: 1rem;
-  }
-
-  .info-card {
-    padding: 1.5rem;
-    margin: 0 0 1rem 0;
+  .how-card {
+    padding: 2rem 1.5rem 1.5rem;
+    border-radius: 16px;
   }
 }
 </style>
