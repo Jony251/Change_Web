@@ -45,6 +45,9 @@ npm run build
 ```bash
 npm run preview
 ```
+<img width="1651" height="898" alt="image" src="https://github.com/user-attachments/assets/4d8c8ee1-d3b4-48ab-afb7-b9d231066818" />
+<img width="1653" height="900" alt="image" src="https://github.com/user-attachments/assets/3cce7c51-8078-4038-9728-468bbacda501" />
+<img width="1646" height="553" alt="image" src="https://github.com/user-attachments/assets/3caa22ad-7c07-4b25-aec8-0055fc43c5d0" />
 
 ## 📝 Development Notes
 
