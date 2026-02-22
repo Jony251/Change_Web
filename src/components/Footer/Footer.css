@@ -77,8 +77,8 @@
 
 .orbit-container {
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: 320px;
+  height: 320px;
 }
 
 /* Center circle */
@@ -111,15 +111,15 @@
 /* Each orbiting item */
 .orbit-item {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 75px;
+  height: 75px;
   border-radius: 50%;
   background: var(--neutral-100);
   border: 2px solid var(--primary-300);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--primary-700);
   transition: all 0.3s ease;
@@ -137,7 +137,7 @@
 .orbit-item:nth-child(1) {
   top: 0;
   left: 50%;
-  margin-left: -30px;
+  margin-left: -37px;
 }
 
 .orbit-item:nth-child(2) {
@@ -212,8 +212,8 @@
   }
 
   .orbit-container {
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
   }
 
   .orbit-center {
@@ -223,9 +223,9 @@
   }
 
   .orbit-item {
-    width: 55px;
-    height: 55px;
-    font-size: 1.1rem;
+    width: 65px;
+    height: 65px;
+    font-size: 1.3rem;
   }
 }
 
@@ -235,8 +235,8 @@
   }
 
   .orbit-container {
-    width: 220px;
-    height: 220px;
+    width: 260px;
+    height: 260px;
   }
 
   .orbit-center {
@@ -246,9 +246,9 @@
   }
 
   .orbit-item {
-    width: 48px;
-    height: 48px;
-    font-size: 1rem;
+    width: 58px;
+    height: 58px;
+    font-size: 1.1rem;
   }
 
   .footer-bottom {
