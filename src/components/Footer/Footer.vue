@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>2025 &copy; {{ t.footerRights }} | {{ t.footerMadeBy }} <a href="https://www.linkedin.com/in/evgeny-nemchenko/" target="_blank" rel="noopener noreferrer">Evgeny</a></p>
+      <p>2025-2026 &copy; {{ t.footerRights }} | {{ t.footerMadeBy }} <a href="http://bluecat.cc/" target="_blank" rel="noopener noreferrer">Blue Cat</a></p>
     </div>
   </footer>
 </template>
